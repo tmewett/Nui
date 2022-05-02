@@ -40,7 +40,7 @@ In shells, it's the opposite; you have to type a command first, then an argument
 The command `r` is designed to feel like the left-click of the terminal. It opens files with the desktop default program for its type, and opens directories in the default file manager.
 
 ### Smart rm
-In user-facing shells, `rm` sends files to the recycle bin instead of permanently deleting them, for safety. Scripts are unaffected.
+In interactive shells, `rm` sends files to the recycle bin instead of permanently deleting them, for safety. Scripts are unaffected. To really delete, use `rm!`.
 
 ### Fuzzy search for files and command history
 If fzf is installed, Nui will enable its keybinds in Fish, giving you fast fuzzy searching.
