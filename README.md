@@ -50,7 +50,7 @@ Lots of `--help` screens are very, very long. You often have to scroll up to fin
 
 `h ...` runs the given command, appended with `--help`, in a scrollable pager in a new window.
 
-TODO `man` is also configured to open in a new window.
+Man pages can be set to open in other programs, like a web browser or editor.
 
 ### EDITOR
 When old-school tools need to open text editors, they look in the environment variable EDITOR for the program name. However, GUI editors and new terminal windows do not always work well when used, as they may not wait for the file to be closed like some programs expect.
@@ -99,6 +99,8 @@ Command options should be set as a list, not a single string; i.e. do `set NUI_E
 * NUI_OPENER is the command which `r` uses to open the given file or directory. Defaults: `rifle`, `open`, `xdg-open`.
 
 * NUI_H_NEW_WINDOW sets whether `h` opens help text in a new terminal window. Default: `true`.
+
+* NUI_MAN_OPENER, if set, is used to open man pages with the `man` command. The man page is written to a text file and the file name is given to $NUI_MAN_OPENER. Example: `x firefox`.
 
 * NUI_RM_TRASHES sets whether `rm` moves files to the trash in user shells. *Requires 'trash-cli' to be installed on Linux.* Doesn't work on macOS yet. Default: `true`.
 
