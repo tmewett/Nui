@@ -1,12 +1,12 @@
 # TERMCMD is used by Ranger to open a terminal.
-set -gx TERMCMD in-terminal
+set -x TERMCMD in-terminal
 
 
 # -j 0.5 - search results appear in middle of screen
 # -R - don't escape colours and text effects
 # -P prompt - the default medium/-m prompt, modified to always show the file
 #   (not just on first prompt) and appended with help info like 'man'
-set -gx LESS "-j 0.5\$ -R -P ?f%f :- .?m(%T %i of %m) .?e(END) ?x- Next\: %x.:?pB%pB\%:byte %bB?s/%s...%t (press h for help or q to quit)\$ $LESS"
+set -x LESS "-j 0.5\$ -R -P ?f%f :- .?m(%T %i of %m) .?e(END) ?x- Next\: %x.:?pB%pB\%:byte %bB?s/%s...%t (press h for help or q to quit)\$ $LESS"
 
 
 if status is-interactive
@@ -35,47 +35,47 @@ end
 ### Variable defaults ###
 
 if not set -q NUI_EDITOR
-    set -g NUI_EDITOR xdg-open
+    set NUI_EDITOR xdg-open
 end
 
 if not set -q NUI_TERMINAL_EDITOR
     if type -q nano
-        set -g NUI_TERMINAL_EDITOR nano
+        set NUI_TERMINAL_EDITOR nano
     else if type -q vi
-        set -g NUI_TERMINAL_EDITOR vi
+        set NUI_TERMINAL_EDITOR vi
     end
 end
 
 if not set -q NUI_OPENER
     if type -q rifle
-        set -g NUI_OPENER rifle
+        set NUI_OPENER rifle
     else if type -q open
-        set -g NUI_OPENER open
+        set NUI_OPENER open
     else if type -q xdg-open
-        set -g NUI_OPENER xdg-open
+        set NUI_OPENER xdg-open
     end
 end
 
 if not set -q NUI_RM_TRASHES
-    set -g NUI_RM_TRASHES true
+    set NUI_RM_TRASHES true
 end
 
 if not set -q NUI_H_NEW_TERMINAL
-    set -g NUI_H_NEW_TERMINAL true
+    set NUI_H_NEW_TERMINAL true
 end
 
 if not set -q NUI_TERMINAL
     if type -q exo-open
-        set -g NUI_TERMINAL exo-open --launch TerminalEmulator
+        set NUI_TERMINAL exo-open --launch TerminalEmulator
     else if type -q gnome-terminal
-        set -g NUI_TERMINAL gnome-terminal --
+        set NUI_TERMINAL gnome-terminal --
     else if type -q kgx  # New GNOME console
-        set -g NUI_TERMINAL kgx --
+        set NUI_TERMINAL kgx --
     end
 end
 
 if not set -q NUI_TERMINAL_CMD
-    set -g NUI_TERMINAL_CMD $NUI_TERMINAL
+    set NUI_TERMINAL_CMD $NUI_TERMINAL
 end
 
 if test (uname -s) = Darwin
