@@ -69,6 +69,8 @@ if not set -q NUI_TERMINAL
         set -g NUI_TERMINAL exo-open --launch TerminalEmulator
     else if type -q gnome-terminal
         set -g NUI_TERMINAL gnome-terminal --
+    else if type -q kgx  # New GNOME console
+        set -g NUI_TERMINAL kgx --
     end
 end
 
