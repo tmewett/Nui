@@ -2,13 +2,17 @@
 
 Nui is a set of configurations and programs that is designed to give a modern, well-designed, and desktop-integrated terminal experience across Linux and macOS.
 
-Default configuration of lots of shells and command-line tools are often unconventional, dated, dangerous, or otherwise user-unfriendly. They are clunky to use and poorly integrate with the modern GUI desktop environment. It is harder than it needs to be to start interacting with and learning via the terminal.
+## Install
 
-Nui attempts to fix this, by providing new, easy-to-use defaults suitable for beginners or the time-constrained.
+With [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish), you can simply run
+
+    omf install https://github.com/tmewett/Nui
+
+Or you can install manually: run `init.fish` at startup, put the functions in your functions dir, and add `bin` to your PATH.
 
 ## Features
 
-* based on Fish, a friendly shell with many usability enhancements over Bash
+* based on Fish, a friendly shell with many usability enhancements over Bash (TODO support other shells)
 * better text editor integration
 * smart trash / recycle bin `rm` integration
 * easily open GUI apps and new terminal windows
@@ -78,10 +82,10 @@ See `--help` for usage.
 
 These are available in the shell, using fzf:
 
+* Ctrl-O: search for a file and open it with `r` (new for Nui)
 * Ctrl-T: search for file and put it on the command line
 * Ctrl-R: search for command in history
 * Alt-C: search for directory and cd to it
-* Ctrl-O: search for a file and open it with `r` (new for Nui)
 
 Note that [Fish already has a bunch of useful keyboard commands](https://fishshell.com/docs/current/interactive.html#shared-bindings), like:
 
@@ -92,7 +96,9 @@ Note that [Fish already has a bunch of useful keyboard commands](https://fishshe
 
 ### Variables
 
-Boolean options should be set to either the strings `true` or `false`.
+You can set these variables in a config file, or as universal variables with `set -U`.
+
+Boolean options must be either the strings `true` or `false`.
 
 Command options should be set as a list, not a single string; i.e. do `set NUI_EDITOR my-cmd --my-opt`, not `set NUI_EDITOR "my-cmd --my-opt"`.
 
