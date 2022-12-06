@@ -1,3 +1,6 @@
+set PATH $path/bin $PATH
+
+
 # TERMCMD is used by Ranger to open a terminal.
 set -x TERMCMD in-terminal
 
