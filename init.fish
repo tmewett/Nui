@@ -68,7 +68,12 @@ if not set -q NUI_H_NEW_TERMINAL
 end
 
 if not set -q NUI_TERMINAL
-    if type -q exo-open
+    if type -q wt.exe
+        function __nui_wt
+            wt.exe nt --title "$argv" wsl -d $WSL_DISTRO_NAME --cd (pwd) $argv
+        end
+        set -g NUI_TERMINAL __nui_wt
+    else if type -q exo-open
         set -g NUI_TERMINAL exo-open --launch TerminalEmulator
     else if type -q gnome-terminal
         set -g NUI_TERMINAL gnome-terminal --
