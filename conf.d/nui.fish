@@ -2,27 +2,7 @@
 set -gx TERMCMD in-terminal
 
 
-# -j 0.5 - search results appear in middle of screen
-# -R - don't escape colours and text effects
-# -P prompt - the default medium/-m prompt, modified to always show the file
-#   (not just on first prompt) and appended with help info like 'man'
-set -gx LESS "-j 0.5\$ -R -P ?f%f :- .?m(%T %i of %m) .?e(END) ?x- Next\: %x.:?pB%pB\%:byte %bB?s/%s...%t (press h for help or q to quit)\$ $LESS"
-
-
 if status is-interactive
-    # Enable fzf if installed.
-    # Look for bindings script in default Homebrew locations.
-    if not functions -q fzf_key_bindings
-        if test -f /usr/local/opt/fzf/shell/key-bindings.fish  # Intel
-            source /usr/local/opt/fzf/shell/key-bindings.fish
-        else if test -f /opt/homebrew/opt/fzf/shell/key-bindings.fish  # Apple silicon
-            source /opt/homebrew/opt/fzf/shell/key-bindings.fish
-        end
-    end
-    if functions -q fzf_key_bindings
-        fzf_key_bindings
-    end
-
     if type -q fzf
         # Bind Ctrl-O to quick-search and open a file with r.
         bind \co 'begin
