@@ -14,18 +14,6 @@ end
 
 ### Variable defaults ###
 
-if not set -q NUI_EDITOR
-    set -g NUI_EDITOR xdg-open
-end
-
-if not set -q NUI_TERMINAL_EDITOR
-    if type -q nano
-        set -g NUI_TERMINAL_EDITOR nano
-    else if type -q vi
-        set -g NUI_TERMINAL_EDITOR vi
-    end
-end
-
 if not set -q NUI_OPENER
     if type -q rifle
         set -g NUI_OPENER rifle
