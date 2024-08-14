@@ -20,7 +20,7 @@ Open a new terminal window, optionally with a given command.
     set argc (count $argv)
     if set -q _NUI_MACOS
         if test $argc -eq 0
-            x open -a Terminal .
+            x open -a $NUI_TERMINAL_APP .
             return
         else
             set script (mktemp -t in-terminal)
@@ -31,7 +31,7 @@ Open a new terminal window, optionally with a given command.
                 echo (string join -- ' ' (string escape -- $argv))
             end > $script
             chmod +x $script
-            x open -a Terminal $script
+            x open -a $NUI_TERMINAL_APP $script
             return
         end
     end
